@@ -2,6 +2,9 @@ import config from "../config";
 
 const { SPOTIFY_API_URL } = config;
 
+const Authorization =
+  "Bearer BQC59NSaxaKFBaSKwdtbs9rfvJ1uJ3bO8M2Gyu-AhLAEfi8w68hqCvkUMZTcZTgBq6850ysX_IIIZDXowAfgABLnP5QDcFXasU4HkW8VUtwvTifHBh3ySC0halrv_iXt-VGoUho4BmrhWvjA8ct0XaNwTy4vintVB64";
+
 export const search = async (keyword: string) => {
   try {
     const res = await fetch(
@@ -10,8 +13,7 @@ export const search = async (keyword: string) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Authorization: Bearer BQD7Jkz3zl-9Acfbuu_sSSXaD0IE8OgPiFPPuLnuyfcrSmUeaDT-nT7xJHl0pgaiCCDFII8Q7UxjLaBgDha6IN-KuSzcivvfUA7HLqxjT3cXQhZhOzkQIfjX8Yd7YNvtsu12ayMGkXKIgVw6nKLC9Wd3bjX3ZzCl8p8",
+          Authorization,
         },
       }
     );
@@ -22,7 +24,17 @@ export const search = async (keyword: string) => {
   }
 };
 
-export const getTrackDetails = () => {
+export const getTrackDetails = async (id: string) => {
   try {
-  } catch (err) {}
+    const res = await fetch(SPOTIFY_API_URL + `audio-features?ids=${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization,
+      },
+    });
+    return await res.json();
+  } catch (err) {
+    console.log(err);
+    return "Error while calling API";
+  }
 };
