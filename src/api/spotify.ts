@@ -1,4 +1,6 @@
-const SPOTIFY_API_URL = "https://api.spotify.com/v1/";
+import config from "../config";
+
+const { SPOTIFY_API_URL } = config;
 
 export const search = async (keyword: string) => {
   try {
@@ -9,7 +11,7 @@ export const search = async (keyword: string) => {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Authorization: Bearer BQCFDoJAgP2Epx71yrxbfXYqKzQzy__YqnUEP8Nse8SmiAXErAuhnfBMDAl4cOGbwe4kXzFGbxWfyJP9jghlajy1JMHETZAbgQABrr8x52NUMW9DayRSWrd8xyKfXx_ABl4jpRT5XmQRPR3bMejCrZFX80YQqIEge1s",
+            "Authorization: Bearer BQD7Jkz3zl-9Acfbuu_sSSXaD0IE8OgPiFPPuLnuyfcrSmUeaDT-nT7xJHl0pgaiCCDFII8Q7UxjLaBgDha6IN-KuSzcivvfUA7HLqxjT3cXQhZhOzkQIfjX8Yd7YNvtsu12ayMGkXKIgVw6nKLC9Wd3bjX3ZzCl8p8",
         },
       }
     );
@@ -18,4 +20,9 @@ export const search = async (keyword: string) => {
     console.log(err);
     return "Error while calling API";
   }
+};
+
+export const getTrackDetails = () => {
+  try {
+  } catch (err) {}
 };

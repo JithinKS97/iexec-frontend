@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 function ListItem(props: any) {
   const router = useRouter();
 
   const {
-    item: { img, id },
+    item: { img, id, name },
   } = props;
 
   const handleClick = () => {
@@ -26,6 +26,9 @@ function ListItem(props: any) {
         }}
         src={img.url}
       ></img>
+      <Text mt="2" fontWeight="bold">
+        {name}
+      </Text>
     </Box>
   );
 }

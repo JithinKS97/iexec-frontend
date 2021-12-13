@@ -24,9 +24,11 @@ export default function Index() {
   };
 
   const extractData = (datum: any) => {
+    console.log(datum);
     return {
       img: datum.album.images[0],
       id: datum.id,
+      name: datum.name,
     };
   };
 
