@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Input } from "@chakra-ui/react";
 import { useState } from "react";
-import { search } from "../api/spotify";
+import { search } from "../../api/spotify";
 import _ from "lodash";
 import TrackList from "./TrackList";
 

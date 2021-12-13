@@ -1,4 +1,4 @@
-import Index from "../src/index";
+import Index from "../src/components/index/index";
 
 const IndexPage = () => {
   return <Index />;
